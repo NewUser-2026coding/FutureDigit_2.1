@@ -155,74 +155,114 @@ export default function Home() {
     <div ref={containerRef}>
       <SiteHeader />
 
-      {/* Hero Section - Simplified, more direct */}
-      <section className="min-h-screen relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black flex items-center pb-0">
-        <motion.div style={{ opacity, scale }} className="container mx-auto px-4 pt-32 pb-0 relative z-10 w-full">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
-            >
-              <span className="bg-gradient-to-r from-white via-orange-100 to-orange-500 bg-clip-text text-transparent">
-                Future Digit
-              </span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl md:text-2xl text-white/90 font-light tracking-wide mb-12"
-            >
-              Conseil & Régie IT
-            </motion.p>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative max-w-6xl mx-auto"
+      {/* Hero Section - Video-first design */}
+      <section className="relative min-h-[90vh] overflow-hidden">
+        {/* Video background layer */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-30"
           >
-            <div className="relative overflow-hidden rounded-t-2xl shadow-2xl">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full pointer-events-none select-none block"
-                style={{ aspectRatio: '2/1' }}
-              >
-                <source src="/videos/PRO-.mp4" type="video/mp4" />
-              </video>
+            <source src="/videos/PRO-.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
+        </div>
+
+        {/* Content overlay */}
+        <motion.div 
+          style={{ opacity, scale }} 
+          className="relative z-10 container mx-auto px-4 min-h-[90vh] flex flex-col justify-center pt-32 pb-16"
+        >
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mb-6"
+            >
+              <div className="inline-block px-3 py-1 bg-orange-500/10 border border-orange-500/20 rounded-full mb-4">
+                <span className="text-sm font-medium text-orange-400">Conseil & Régie IT depuis 2020</span>
+              </div>
+            </motion.div>
+            
+            <motion.h1
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1]"
+            >
+              <span className="text-white">Future Digit</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg md:text-xl text-white/80 leading-relaxed mb-8 max-w-xl"
+            >
+              Experts en transformation digitale pour les secteurs de la Banque-Finance et de l'Ingénierie
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-wrap gap-3"
+            >
+              <Link href="#expertises">
+                <Button size="lg" className="rounded-full group">
+                  Nos expertises
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Button>
+              </Link>
+              <Link href="#contact">
+                <Button size="lg" variant="outline" className="rounded-full border-white/20 text-white hover:bg-white/10">
+                  Nous contacter
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Floating stats cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mt-16 flex flex-wrap gap-4"
+          >
+            <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-3">
+              <div className="text-2xl font-bold text-white">45</div>
+              <div className="text-xs text-white/60">Consultants</div>
+            </div>
+            <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-3">
+              <div className="text-2xl font-bold text-orange-400">4M€</div>
+              <div className="text-xs text-white/60">CA 2024</div>
+            </div>
+            <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-3">
+              <div className="text-2xl font-bold text-white">2</div>
+              <div className="text-xs text-white/60">Business Units</div>
             </div>
           </motion.div>
         </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+        >
+          <div className="flex flex-col items-center gap-2 text-white/40">
+            <span className="text-xs uppercase tracking-wider">Défiler</span>
+            <div className="w-px h-8 bg-gradient-to-b from-white/40 to-transparent" />
+          </div>
+        </motion.div>
       </section>
 
-      {/* Real Company Stats - Using actual data from the document */}
-      <section className="py-16 bg-black border-t border-gray-800">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">2020</div>
-              <div className="text-sm text-gray-400">Créée</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-orange-500 mb-2">45</div>
-              <div className="text-sm text-gray-400">Consultants</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">4M€</div>
-              <div className="text-sm text-gray-400">CA 2024</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-orange-500 mb-2">2</div>
-              <div className="text-sm text-gray-400">Business Units</div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Growth Story - More authentic */}
       <section className="py-20 bg-gradient-to-b from-black to-background">
