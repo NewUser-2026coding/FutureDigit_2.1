@@ -32,6 +32,8 @@ const modesIntervention = [
       "Concevoir vos solutions sur mesure de l'idée au projet. Constituez une équipe pluridisciplinaire pour réaliser un projet complet avec des itérations courtes et un engagement sur les résultats.",
     image: "/images/conseil-hero.jpg",
     link: "/modes/conseil",
+    subtitle: "Mode Conseil",
+    tags: ["Accompagnement", "Solutions sur mesure", "Équipe dédiée"],
   },
   {
     title: "Regie",
@@ -39,6 +41,8 @@ const modesIntervention = [
       "Renforcez vos équipes avec l'expertise et le leadership de nos talents en immersion au sein de votre organisation pour vous accompagner dans votre développement.",
     image: "/images/regie-hero.jpg",
     link: "/modes/regie",
+    subtitle: "Mode Régie",
+    tags: ["Renforcement", "Expertise", "Leadership"],
   },
 ]
 
