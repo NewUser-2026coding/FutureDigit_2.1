@@ -137,7 +137,7 @@ export default function Home() {
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: containerRef as React.RefObject<HTMLElement>,
     offset: ["start start", "end start"],
   })
 
