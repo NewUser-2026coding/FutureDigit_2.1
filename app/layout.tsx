@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Future Digit - Conseil & Régie IT | Ingénierie & Banque-Finance",
   description:
     "Future Digit : conseil et régie IT, expertises Software Engineering, Cloud, SAP. Business Units Banque-Finance et Ingénierie. Paris, Nogent sur Marne.",
-  generator: "v0.app",
+  
 }
 
 export default function RootLayout({
