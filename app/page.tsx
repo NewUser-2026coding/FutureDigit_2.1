@@ -134,6 +134,7 @@ const businessUnits = [
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [currentServiceIndex, setCurrentServiceIndex] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -143,6 +144,8 @@ export default function Home() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
 
+  const services = ["Conseil", "Régie", "Cloud", "Software Engineering", "DevOps", "SAP", "Gestion de Projet"]
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
@@ -150,6 +153,13 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentServiceIndex((prev) => (prev + 1) % services.length)
+    }, 2000)
+    return () => clearInterval(interval)
+  }, [services.length])
 
   return (
     <div ref={containerRef}>
@@ -176,76 +186,35 @@ export default function Home() {
           style={{ opacity, scale }} 
           className="relative z-10 container mx-auto px-4 min-h-[90vh] flex flex-col justify-center pt-32 pb-16"
         >
-          <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mb-6"
-            >
-              <div className="inline-block px-3 py-1 bg-orange-500/10 border border-orange-500/20 rounded-full mb-4">
-                <span className="text-sm font-medium text-orange-400">Conseil & Régie IT depuis 2020</span>
-              </div>
-            </motion.div>
-            
+          <div className="max-w-3xl">
             <motion.h1
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1]"
+              transition={{ duration: 0.6 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-[1.1]"
             >
               <span className="text-white">Future Digit</span>
             </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/80 leading-relaxed mb-8 max-w-xl"
-            >
-              Experts en transformation digitale pour les secteurs de la Banque-Finance et de l'Ingénierie
-            </motion.p>
-
+            {/* Animated service rotator */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap gap-3"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="h-16 md:h-20 overflow-hidden"
             >
-              <Link href="#expertises">
-                <Button size="lg" className="rounded-full group">
-                  Nos expertises
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </Button>
-              </Link>
-              <Link href="#contact">
-                <Button size="lg" variant="outline" className="rounded-full border-white/20 text-white hover:bg-white/10">
-                  Nous contacter
-                </Button>
-              </Link>
+              <motion.div
+                key={currentServiceIndex}
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -50, opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-2xl md:text-3xl lg:text-4xl font-light text-orange-400"
+              >
+                {services[currentServiceIndex]}
+              </motion.div>
             </motion.div>
           </div>
-
-          {/* Floating stats cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-16 flex flex-wrap gap-4"
-          >
-            <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-3">
-              <div className="text-2xl font-bold text-white">45</div>
-              <div className="text-xs text-white/60">Consultants</div>
-            </div>
-            <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-3">
-              <div className="text-2xl font-bold text-orange-400">4M€</div>
-              <div className="text-xs text-white/60">CA 2024</div>
-            </div>
-            <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-3">
-              <div className="text-2xl font-bold text-white">2</div>
-              <div className="text-xs text-white/60">Business Units</div>
-            </div>
-          </motion.div>
         </motion.div>
 
         {/* Scroll indicator */}
