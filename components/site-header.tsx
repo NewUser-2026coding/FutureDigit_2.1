@@ -88,7 +88,12 @@ export function SiteHeader({ transparent = true }: SiteHeaderProps) {
             <Link href="/#contact" className="hidden sm:block">
               <Button
                 size="sm"
-                className="rounded-full px-5 font-medium text-sm gap-2 group"
+                variant="outline"
+                className={`rounded-full px-5 font-medium text-sm gap-2 group border transition-colors ${
+                  isScrolled
+                    ? "bg-background border-border text-foreground hover:bg-accent"
+                    : "bg-transparent border-white text-white hover:bg-white/10"
+                }`}
               >
                 Demander un devis
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
