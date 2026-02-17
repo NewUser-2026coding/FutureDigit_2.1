@@ -111,12 +111,7 @@ export default function CloudPage() {
               Du replatforming a la gouvernance multi-cloud, nos experts certifies vous
               accompagnent dans chaque etape de votre migration et optimisation cloud.
             </p>
-            <Link href="/#contact">
-              <Button size="lg" className="rounded-full gap-2 group">
-                Evaluer mon infrastructure
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </Button>
-            </Link>
+
           </motion.div>
         </div>
       </section>

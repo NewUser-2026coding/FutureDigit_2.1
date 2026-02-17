@@ -88,52 +88,60 @@ export default function SAPPage() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
-      {/* Hero - Centered with background image */}
-      <section className="relative pt-32 pb-24 lg:pt-44 lg:pb-32 overflow-hidden">
+      {/* Hero - Split layout with image */}
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/expertise-sap-hero.jpg"
-            alt="Expertise SAP - Solutions d'entreprise"
-            fill
-            className="object-cover opacity-40"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-950/30 via-background to-background" />
         </div>
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="max-w-3xl mx-auto"
-          >
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20">
-              <Database className="w-4 h-4 text-amber-400" />
-              <span className="text-sm font-medium text-amber-400">Expertise SAP</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance leading-tight">
-              L'ecosysteme SAP au service de votre{" "}
-              <span className="text-amber-400">performance</span>
-            </h1>
-            <p className="text-lg text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto">
-              Nos consultants SAP certifies couvrent l'ensemble des modules pour vous
-              accompagner dans l'implementation, l'integration et l'evolution de vos
-              solutions d'entreprise.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/#contact">
-                <Button size="lg" className="rounded-full gap-2 group">
-                  Parler a un expert SAP
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </Button>
-              </Link>
-              <Link href="#modules">
-                <Button size="lg" variant="outline" className="rounded-full gap-2">
-                  Decouvrir nos modules
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+            >
+              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20">
+                <Database className="w-4 h-4 text-amber-400" />
+                <span className="text-sm font-medium text-amber-400">Expertise SAP</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance leading-tight">
+                L'ecosysteme SAP au service de votre{" "}
+                <span className="text-amber-400">performance</span>
+              </h1>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
+                Nos consultants SAP certifies couvrent l'ensemble des modules pour vous
+                accompagner dans l'implementation, l'integration et l'evolution de vos
+                solutions d'entreprise.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="relative hidden lg:block"
+            >
+              <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+                <Image
+                  src="/images/expertise-sap-hero.jpg"
+                  alt="Expertise SAP - Solutions d'entreprise"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
+              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="absolute -bottom-5 -left-5 bg-card/90 backdrop-blur-sm border border-amber-500/20 rounded-xl p-4 shadow-2xl"
+              >
+                <p className="text-2xl font-bold text-amber-400">5+</p>
+                <p className="text-xs text-muted-foreground">Modules SAP maitrises</p>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 

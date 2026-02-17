@@ -106,85 +106,50 @@ export default function GestionProjetPage() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
-      {/* Hero - Image left, content right */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+      {/* Hero - Full-width background image, centered content */}
+      <section className="relative min-h-[75vh] flex items-end pb-20">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-orange-950/30 via-background to-background" />
+          <Image
+            src="/images/expertise-gestion-hero.jpg"
+            alt="Gestion de Projet - Pilotage agile"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Image side */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7 }}
-              className="relative order-2 lg:order-1"
-            >
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
-                <Image
-                  src="/images/expertise-gestion-hero.jpg"
-                  alt="Gestion de Projet - Pilotage agile"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-transparent" />
-              </div>
-              {/* Floating card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="absolute -bottom-5 -right-5 bg-card/90 backdrop-blur-sm border border-orange-500/20 rounded-xl p-4 shadow-2xl"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center">
-                    <MessageSquare className="w-5 h-5 text-orange-400" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-foreground">Agile First</p>
-                    <p className="text-xs text-muted-foreground">Scrum, Kanban, SAFe</p>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Content side */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              className="order-1 lg:order-2"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="h-px w-12 bg-orange-500" />
-                <span className="text-sm font-medium tracking-widest uppercase text-orange-400">
-                  Nos Expertises
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-px w-12 bg-orange-500" />
+              <span className="text-sm font-medium tracking-widest uppercase text-orange-400">
+                Nos Expertises
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance leading-tight">
+              Gestion de{" "}
+              <span className="text-orange-400">Projet</span>
+            </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+              Nos chefs de projet et coachs agiles certifies pilotent vos initiatives IT
+              avec rigueur et methodologie, en maximisant la valeur delivree a chaque iteration.
+            </p>
+            <div className="flex flex-wrap gap-3 mt-8">
+              {["Scrum", "Kanban", "SAFe", "Waterfall"].map((m) => (
+                <span
+                  key={m}
+                  className="px-4 py-1.5 text-sm font-medium rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400"
+                >
+                  {m}
                 </span>
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance leading-tight">
-                Gestion de{" "}
-                <span className="text-orange-400">Projet</span>
-              </h1>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-lg">
-                Nos chefs de projet et coachs agiles certifies pilotent vos initiatives IT
-                avec rigueur et methodologie, en maximisant la valeur delivree a chaque iteration.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link href="/#contact">
-                  <Button size="lg" className="rounded-full gap-2 group">
-                    Trouver un chef de projet
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                  </Button>
-                </Link>
-                <Link href="#approche">
-                  <Button size="lg" variant="outline" className="rounded-full gap-2">
-                    Notre approche
-                  </Button>
-                </Link>
-              </div>
-            </motion.div>
-          </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 

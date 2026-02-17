@@ -112,19 +112,7 @@ export default function SoftwareEngineeringPage() {
                 Du frontend au logiciel embarque, nous concevons et developpons des solutions
                 logicielles innovantes couvrant l'ensemble du spectre applicatif.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Link href="/#contact">
-                  <Button size="lg" className="rounded-full gap-2 group">
-                    Discutons de votre projet
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                  </Button>
-                </Link>
-                <Link href="#domaines">
-                  <Button size="lg" variant="outline" className="rounded-full gap-2">
-                    Nos domaines
-                  </Button>
-                </Link>
-              </div>
+
             </motion.div>
 
             <motion.div
