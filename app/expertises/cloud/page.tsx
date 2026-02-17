@@ -1,112 +1,203 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { motion } from "framer-motion"
-import { ArrowRight, Cloud, Server, Shield, Zap, CheckCircle } from "lucide-react"
+import {
+  ArrowRight,
+  Cloud,
+  ShieldCheck,
+  Network,
+  Building2,
+  ArrowUpRight,
+} from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.1 },
+  }),
+}
+
+const pillars = [
+  {
+    icon: ArrowUpRight,
+    number: "01",
+    title: "Replatforming",
+    subtitle: "Migration de workloads vers le cloud",
+    description:
+      "Redeploiement de vos infrastructures existantes vers le cloud : de la containerisation au serverless. Nous assurons une transition fluide et sans interruption de service.",
+    tags: ["Lift & Shift", "Refactoring", "Re-architecting"],
+  },
+  {
+    icon: Building2,
+    number: "02",
+    title: "Landing Zone",
+    subtitle: "Plateforme de projets securisee",
+    description:
+      "Automatisation et securisation de votre plateforme cloud. Nous concevons des fondations solides pour heberger l'ensemble de vos projets avec gouvernance et conformite.",
+    tags: ["IAM", "Networking", "Compliance"],
+  },
+  {
+    icon: Network,
+    number: "03",
+    title: "Multi-Cloud",
+    subtitle: "Gouvernance multi-ecosystemes",
+    description:
+      "Gouvernance et securisation de vos ecosystemes on-premise et cloud. Nous orchestrons vos ressources a travers plusieurs fournisseurs pour maximiser la resilience.",
+    tags: ["Hybrid", "Governance", "Cost Optimization"],
+  },
+  {
+    icon: ShieldCheck,
+    number: "04",
+    title: "Foundations Cloud",
+    subtitle: "Bases d'infrastructure cloud",
+    description:
+      "Mise en place des bases d'une infrastructure cloud selon l'etat de l'art. Nous definissons les standards, les pratiques et les outils pour garantir la perennite.",
+    tags: ["Best Practices", "IaC", "Security"],
+  },
+]
+
+const technologies = [
+  { name: "Google Cloud Platform", short: "GCP" },
+  { name: "Amazon Web Services", short: "AWS" },
+  { name: "Microsoft Azure", short: "Azure" },
+  { name: "Kubernetes", short: "K8s" },
+  { name: "Docker", short: "Docker" },
+  { name: "Terraform", short: "Terraform" },
+]
+
 export default function CloudPage() {
-
-  const services = [
-    {
-      icon: Cloud,
-      title: "Migration Cloud",
-      description: "Transition fluide de vos applications vers le cloud",
-    },
-    {
-      icon: Server,
-      title: "Architecture Cloud",
-      description: "Conception d'infrastructures cloud optimisées",
-    },
-    {
-      icon: Shield,
-      title: "Securite Cloud",
-      description: "Protection avancee de vos donnees et applications",
-    },
-    {
-      icon: Zap,
-      title: "Optimisation",
-      description: "Amélioration des performances et réduction des coûts",
-    },
-  ]
-
-  const benefits = [
-    "AWS, Azure, GCP certifiés",
-    "Haute disponibilite",
-    "Scalabilite automatique",
-    "Securite renforcee",
-    "Monitoring 24/7",
-    "Support dédié",
-  ]
-
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
-      {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center pt-20">
+      {/* Hero - Full-width image background */}
+      <section className="relative min-h-[80vh] flex items-end pb-20">
         <div className="absolute inset-0 z-0">
-          <img
-            src="/images/expertise-cloud.jpg"
-            alt="Cloud Solutions"
-            className="w-full h-full object-cover"
+          <Image
+            src="/images/expertise-cloud-hero.jpg"
+            alt="Expertise Cloud - Infrastructure cloud moderne"
+            fill
+            className="object-cover"
+            priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl"
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl"
           >
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              Nos Expertises
-            </span>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
-              Cloud
+            <div className="flex items-center gap-3 mb-6">
+              <Cloud className="w-5 h-5 text-teal-400" />
+              <span className="text-sm font-medium tracking-widest uppercase text-teal-400">
+                Expertise Cloud
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance leading-tight">
+              Accelerez votre transformation avec le{" "}
+              <span className="text-teal-400">Cloud</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 text-pretty">
-              Accelerez votre transformation digitale avec nos solutions cloud sur mesure, 
-              securisees et performantes.
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-2xl">
+              Du replatforming a la gouvernance multi-cloud, nos experts certifies vous
+              accompagnent dans chaque etape de votre migration et optimisation cloud.
             </p>
-            <Link href="/#contact">
-              <Button size="lg" className="bg-foreground text-background hover:bg-foreground/90">
-                Discutons de votre projet
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+
           </motion.div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-24 bg-[#020817]">
+      {/* Technology bar */}
+      <section className="border-y border-border/50 bg-card/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos Services Cloud</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Des solutions cloud completes pour moderniser votre infrastructure IT
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
+          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 py-8">
+            {technologies.map((tech, i) => (
               <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group"
+                key={tech.short}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+                variants={fadeUp}
+                className="flex flex-col items-center gap-1"
               >
-                <div className="p-6 rounded-2xl bg-[#0a101f]/60 border border-gray-800/50 hover:bg-[#0a101f]/80 transition-all duration-300 h-full">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="w-6 h-6 text-primary" />
+                <span className="text-sm font-bold text-foreground">{tech.short}</span>
+                <span className="text-xs text-muted-foreground">{tech.name}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pillars - Numbered stacked cards */}
+      <section className="py-24 lg:py-32">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={0}
+            variants={fadeUp}
+            className="max-w-2xl mb-16"
+          >
+            <span className="text-sm font-medium tracking-widest uppercase text-teal-400 mb-4 block">
+              Nos 4 piliers
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
+              Une approche structuree pour votre strategie cloud
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Chaque pilier repond a un enjeu specifique de votre parcours cloud, du
+              re-platforming initial a la gouvernance avancee.
+            </p>
+          </motion.div>
+
+          <div className="space-y-4">
+            {pillars.map((pillar, i) => (
+              <motion.div
+                key={pillar.number}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+                variants={fadeUp}
+              >
+                <div className="group rounded-2xl border border-border/50 bg-card/50 hover:bg-card/80 transition-all duration-300 overflow-hidden">
+                  <div className="p-6 md:p-8 flex flex-col md:flex-row md:items-start gap-6">
+                    <div className="flex items-start gap-4 md:w-1/3 shrink-0">
+                      <span className="text-3xl font-bold text-teal-400/50 font-mono">
+                        {pillar.number}
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-bold text-foreground">{pillar.title}</h3>
+                        <p className="text-sm text-muted-foreground mt-1">{pillar.subtitle}</p>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                        {pillar.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {pillar.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-3 py-1 text-xs font-medium rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground">{service.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -114,187 +205,97 @@ export default function CloudPage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-24 bg-gradient-to-b from-[#020817] to-background">
+      {/* Detail image + certifications */}
+      <section className="py-24 lg:py-32 bg-card/30 border-y border-border/50">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-3 relative"
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Pourquoi nous choisir?</h2>
-              <p className="text-muted-foreground mb-8">
-                Nos experts cloud certifiés vous accompagnent dans votre migration et 
-                l'optimisation de votre infrastructure pour maximiser votre ROI.
-              </p>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {benefits.map((benefit, index) => (
+              <div className="relative rounded-2xl overflow-hidden aspect-[16/10]">
+                <Image
+                  src="/images/expertise-cloud-detail.jpg"
+                  alt="Infrastructure cloud moderne"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-2"
+            >
+              <span className="text-sm font-medium tracking-widest uppercase text-teal-400 mb-4 block">
+                Pourquoi Future Digit
+              </span>
+              <h2 className="text-3xl font-bold mb-6">
+                Expertise certifiee, resultats mesurables
+              </h2>
+              <div className="space-y-4">
+                {[
+                  { title: "Certifies AWS, Azure, GCP", desc: "Nos consultants detiennent les certifications officielles des principaux cloud providers." },
+                  { title: "Haute disponibilite", desc: "Architectures concues pour garantir la continuite de service et la resilience." },
+                  { title: "Securite renforcee", desc: "Conformite reglementaire, chiffrement et gestion des acces a chaque couche." },
+                  { title: "Optimisation des couts", desc: "Analyse et reduction de vos depenses cloud sans compromis sur la performance." },
+                ].map((item, i) => (
                   <motion.div
-                    key={benefit}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="flex items-center gap-3"
+                    key={item.title}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    custom={i}
+                    variants={fadeUp}
+                    className="p-4 rounded-xl bg-background/60 border border-border/50"
                   >
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-sm">{benefit}</span>
+                    <h4 className="text-sm font-semibold text-foreground mb-1">{item.title}</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <img
-                src="/images/expertise-cloud-2.jpg"
-                alt="Cloud infrastructure"
-                className="rounded-2xl w-full"
-              />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-background/50 to-transparent" />
-            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-[#020817]">
+      {/* CTA */}
+      <section className="py-24 lg:py-32">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl mx-auto"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="relative rounded-3xl overflow-hidden"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Pret a migrer vers le cloud?
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              Contactez-nous pour une evaluation gratuite de votre infrastructure et 
-              decouvrez comment le cloud peut transformer votre entreprise.
-            </p>
-            <Link href="/#contact">
-              <Button size="lg" className="bg-foreground text-background hover:bg-foreground/90">
-                Contactez-nous
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <div className="absolute inset-0 bg-gradient-to-br from-teal-950/80 via-background to-background" />
+            <div className="relative z-10 px-8 py-16 md:px-16 md:py-20 text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-balance">
+                Pret a migrer vers le cloud ?
+              </h2>
+              <p className="text-muted-foreground mb-8 leading-relaxed">
+                Contactez-nous pour une evaluation gratuite de votre infrastructure et
+                decouvrez comment le cloud peut transformer votre entreprise.
+              </p>
+              <Link href="/#contact">
+                <Button size="lg" className="rounded-full gap-2 group">
+                  Contactez-nous
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Button>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-gray-800 bg-background/50">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h4 className="font-semibold mb-4">Services</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/expertises/software-engineering" className="text-sm text-muted-foreground hover:text-primary">
-                    Software Engineering
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/expertises/cloud" className="text-sm text-muted-foreground hover:text-primary">
-                    Cloud
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/expertises/infrastructure-devops" className="text-sm text-muted-foreground hover:text-primary">
-                    Infrastructure & DevOps
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/expertises/gestion-projet" className="text-sm text-muted-foreground hover:text-primary">
-                    Gestion de Projet
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Modes d'intervention</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/modes/conseil" className="text-sm text-muted-foreground hover:text-primary">
-                    Conseil
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/modes/regie" className="text-sm text-muted-foreground hover:text-primary">
-                    Regie
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Business Units</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/business-units/banque-finance" className="text-sm text-muted-foreground hover:text-primary">
-                    Banque Finance
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/business-units/ingenierie" className="text-sm text-muted-foreground hover:text-primary">
-                    Ingénierie
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
-                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                    <circle cx="12" cy="10" r="3"/>
-                  </svg>
-                  Paris, France
-                </li>
-                <li className="flex items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
-                    <rect width="20" height="16" x="2" y="4" rx="2"/>
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                  </svg>
-                  <Link href="mailto:contact@madison.com" className="text-sm text-muted-foreground hover:text-primary">
-                    contact@madison.com
-                  </Link>
-                </li>
-                <li className="flex items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                  </svg>
-                  <Link href="tel:+33123456789" className="text-sm text-muted-foreground hover:text-primary">
-                    +33 1 2345 6789
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="pt-8 pb-8 border-t space-y-4">
-            <div className="text-center text-sm text-muted-foreground">
-              <p>&copy; {new Date().getFullYear()} Madison. All rights reserved.</p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4 text-xs text-muted-foreground pb-4">
-              <Link href="/" className="hover:text-primary">
-                Mentions légales
-              </Link>
-              <span>|</span>
-              <Link href="/" className="hover:text-primary">
-                Politique de confidentialité
-              </Link>
-              <span>|</span>
-              <Link href="/" className="hover:text-primary">
-                Politique cookies
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }
