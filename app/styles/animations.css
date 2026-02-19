@@ -15,6 +15,26 @@
   animation-play-state: paused;
 }
 
+/* Seamless loop: no visible reset; GPU-friendly */
+@keyframes scroll-seamless {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-scroll-seamless {
+  animation: scroll-seamless 70s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.animate-scroll-seamless:hover {
+  animation-play-state: paused;
+}
+
 .gradient-mask {
   mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);

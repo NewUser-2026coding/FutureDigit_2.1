@@ -115,7 +115,11 @@ export default function InfrastructureDevOpsPage() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/#contact">
-                  <Button size="lg" className="rounded-full gap-2 group">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full px-5 font-medium border border-border bg-background text-foreground hover:bg-accent gap-2 group"
+                  >
                     Auditer mon infrastructure
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                   </Button>
@@ -310,7 +314,7 @@ export default function InfrastructureDevOpsPage() {
             >
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                 <Image
-                  src="/images/expertise-devops-detail.jpg"
+                  src="/images/new_images/devops2.webp"
                   alt="Equipe DevOps en action"
                   fill
                   className="object-cover"
@@ -341,7 +345,11 @@ export default function InfrastructureDevOpsPage() {
                 transformer votre cycle de developpement et votre infrastructure.
               </p>
               <Link href="/#contact">
-                <Button size="lg" className="rounded-full gap-2 group">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-5 font-medium border border-border bg-background text-foreground hover:bg-accent gap-2 group"
+                >
                   Contactez-nous
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Button>

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ArrowRight, ChevronRight, ArrowUpRight, MapPin, Phone, Mail, Send, Landmark, Cog, Users, TrendingUp, Target } from "lucide-react"
+import { ArrowRight, ChevronRight, ArrowUpRight, MapPin, Phone, Mail, Send, Landmark, Cog, Users, TrendingUp, Target, ChevronDown } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useScroll, useTransform } from "framer-motion"
@@ -11,14 +11,15 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { SiteHeader } from "@/components/site-header"
+import { SiteFooter } from "@/components/site-footer"
 import "./styles/animations.css"
 
 const modesIntervention = [
   {
     title: "Conseil",
     description:
-      "Constituez une équipe pluridisciplinaire pour réaliser un projet complet avec des itérations courtes et un engagement sur les résultats.",
-    image: "/images/conseil-hero.jpg",
+      "Constituez une équipe pluridisciplinaire pour réaliser un projet complet. Nous maximisons la valeur des projets par des blocs d'itérations courtes en équipes pluridisciplinaires.",
+    image: "/images/new_images/mode-consulting.webp",
     link: "/modes/conseil",
     subtitle: "Prestations au forfait",
     tags: ["Équipe dédiée", "Solutions sur mesure", "Projets complets"],
@@ -26,8 +27,8 @@ const modesIntervention = [
   {
     title: "Régie",
     description:
-      "Renforcez vos équipes avec l'expertise et le leadership de nos talents en immersion au sein de votre organisation.",
-    image: "/images/regie-hero.jpg",
+      "Bénéficiez de l'expertise et du leadership d'un ou de plusieurs de nos talents, en immersion chez vous, pour renforcer vos équipes et vous accompagner dans votre développement.",
+    image: "/images/new_images/mode-regie.webp",
     link: "/modes/regie",
     subtitle: "Extended Teams",
     tags: ["Renforcement", "Expertise", "Immersion"],
@@ -38,7 +39,7 @@ const expertises = [
   {
     name: "Software Engineering",
     description: "Frontend, Backend & Embedded",
-    image: "/images/expertise-software.jpg",
+    image: "/images/new_images/swe1.webp",
     link: "/expertises/software-engineering",
     icon: () => (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
@@ -51,7 +52,7 @@ const expertises = [
   {
     name: "Cloud",
     description: "GCP, AWS, Azure & Kubernetes",
-    image: "/images/expertise-cloud.jpg",
+    image: "/images/new_images/cloud1.webp",
     link: "/expertises/cloud",
     icon: () => (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
@@ -62,7 +63,7 @@ const expertises = [
   {
     name: "Infrastructure & DevOps",
     description: "Automatisation & CI/CD",
-    image: "/images/expertise-devops.jpg",
+    image: "/images/new_images/devops1.webp",
     link: "/expertises/infrastructure-devops",
     icon: () => (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
@@ -76,7 +77,7 @@ const expertises = [
   {
     name: "Gestion de projet",
     description: "Scrum, Kanban & SAFe",
-    image: "/images/expertise-gestion.jpg",
+    image: "/images/new_images/gestprojet1.webp",
     link: "/expertises/gestion-projet",
     icon: () => (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
@@ -90,7 +91,7 @@ const expertises = [
   {
     name: "Expertise SAP",
     description: "S/4HANA, FI/CO & SuccessFactors",
-    image: "/images/expertise-sap.jpg",
+    image: "/images/new_images/sap1.webp",
     link: "/expertises/sap",
     icon: () => (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
@@ -103,30 +104,46 @@ const expertises = [
   },
 ]
 
+const clientLogos = [
+  { src: "/images/new_images/BNP_logo.webp", alt: "BNP Paribas" },
+  { src: "/images/new_images/BPCE_logo.webp", alt: "BPCE - Natixis" },
+  { src: "/images/new_images/SG_logo.webp", alt: "Société Générale" },
+  { src: "/images/new_images/SCOOR_logo.webp", alt: "SCOR" },
+  { src: "/images/new_images/CA_logo.webp", alt: "Crédit Agricole" },
+  { src: "/images/new_images/BFB_logo.webp", alt: "Bforbank" },
+  { src: "/images/new_images/SMT_logo.webp", alt: "S-Money" },
+  { src: "/images/new_images/TE_logo.webp", alt: "Technip" },
+  { src: "/images/new_images/EDF_logo.webp", alt: "EDF" },
+  { src: "/images/new_images/ENG_logo.webp", alt: "Engie" },
+  { src: "/images/new_images/SPM_logo.webp", alt: "Saipem" },
+  { src: "/images/new_images/FSP_logo.webp", alt: "Forsee Power" },
+  { src: "/images/new_images/FLW_logo.webp", alt: "Flying Whales" },
+  { src: "/images/new_images/EGS_logo.webp", alt: "Egis" },
+  { src: "/images/new_images/SBG_logo.webp", alt: "Schlumberger" },
+]
+
 const businessUnits = [
   {
     title: "Pôle Banque - Finance",
-    description: "Accompagnement des acteurs du secteur financier dans leur transformation digitale et leurs projets technologiques.",
+    description: "Le Pôle Banque - Finance s'adresse à tous les acteurs du secteur : banque de financement et d'investissement, gestion d'actifs, banque de détail, banque directe, banque privée, assurances.",
     features: [
-      "Banque d'investissement & gestion d'actifs",
-      "Solutions bancaires digitales",
-      "Infrastructure & MOE",
-      "Conformité & expertise métier",
+      "Gestion des infrastructures / Production / DevSecOps",
+      "MOE : développement et suivi de projets applicatifs",
+      "MOA et expertise métier",
     ],
-    clients: ["BNP Paribas", "BPCE - Natixis", "Société Générale", "Crédit Agricole"],
+    clients: ["BNP Paribas", "BPCE - Natixis", "Société Générale", "SCOR", "Crédit Agricole", "Bforbank", "S-Money"],
     link: "/business-units/banque-finance",
     icon: Landmark,
   },
   {
     title: "Pôle Ingénierie",
-    description: "Accompagnement des opérateurs, EPC et fournisseurs d'équipements dans l'énergie et l'aéronautique.",
+    description: "Le Pôle Ingénierie s'adresse aux opérateurs, EPC et fournisseurs d'équipements dans l'énergie, le pétrole & gaz et l'aéronautique.",
     features: [
       "Conception mécanique",
-      "Systèmes embarqués & logiciels industriels",
-      "Supply chain & industrie 4.0",
-      "Énergie, pétrole & gaz",
+      "Conception Hardware & Software",
+      "Supply chain / industrialisation 4.0",
     ],
-    clients: ["Technip", "Total", "Saipem", "EDF"],
+    clients: ["Technip", "Total", "Saipem", "Schlumberger", "Forsee Power", "EDF", "Engie", "Egis", "Flying Whales"],
     link: "/business-units/ingenierie",
     icon: Cog,
   },
@@ -220,12 +237,52 @@ export default function Home() {
           </div>
         </motion.div>
 
+        {/* Scroll-down arrow: above logo carousel, smooth scroll to Comment nous travaillons */}
+        <a
+          href="#modes"
+          onClick={(e) => {
+            e.preventDefault()
+            document.getElementById("modes")?.scrollIntoView({ behavior: "smooth" })
+          }}
+          className="group absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full text-white/40 hover:text-white/90 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+          aria-label="Défiler vers Comment nous travaillons"
+        >
+          <ChevronDown className="w-5 h-5 transition-transform duration-300 group-hover:translate-y-0.5" />
+        </a>
       </section>
 
-
+      {/* Logo carousel - Ils nous font confiance */}
+      <section className="relative py-12 bg-[#020817] overflow-hidden">
+        {/* Top gradient: smooth transition from video to section background */}
+        <div
+          className="absolute inset-x-0 top-0 h-28 pointer-events-none z-10 bg-gradient-to-b from-black to-[#020817]"
+          aria-hidden
+        />
+        <div className="relative z-20 w-full">
+          <div className="flex animate-scroll-seamless w-max">
+            {[...clientLogos, ...clientLogos].map((logo, index) => (
+              <div
+                key={`${logo.src}-${index}`}
+                className="flex-shrink-0 w-[200px] h-[80px] mx-2 flex items-center justify-center"
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={200}
+                  height={80}
+                  className="object-contain max-h-[80px] w-auto opacity-90 hover:opacity-100 transition-opacity"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="container mx-auto px-4 mt-6 relative z-20">
+          <p className="text-center text-sm text-muted-foreground">Ils nous font confiance</p>
+        </div>
+      </section>
 
       {/* Modes d'intervention */}
-      <section className="py-20 bg-background">
+      <section id="modes" className="py-20 bg-background scroll-mt-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Comment nous travaillons</h2>
@@ -394,24 +451,13 @@ export default function Home() {
                       <h3 className="text-xl font-bold mb-3 group-hover:text-orange-500 transition-colors">{unit.title}</h3>
                       <p className="text-muted-foreground mb-6 leading-relaxed">{unit.description}</p>
                       
-                      <div className="space-y-2 mb-6">
+                      <div className="space-y-2">
                         {unit.features.map((feature, i) => (
                           <div key={i} className="flex items-start text-sm">
                             <ChevronRight className="w-4 h-4 mr-2 text-orange-500 flex-shrink-0 mt-0.5" />
                             <span>{feature}</span>
                           </div>
                         ))}
-                      </div>
-
-                      <div className="pt-4 border-t">
-                        <div className="text-xs font-medium text-muted-foreground mb-2">Clients</div>
-                        <div className="flex flex-wrap gap-2">
-                          {unit.clients.map((client) => (
-                            <span key={client} className="text-xs px-2 py-1 bg-muted rounded">
-                              {client}
-                            </span>
-                          ))}
-                        </div>
                       </div>
                     </CardContent>
                   </Card>
@@ -559,9 +605,13 @@ export default function Home() {
                         className="resize-none"
                       />
                     </div>
-                    <Button size="lg" className="w-full">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="w-full rounded-full px-5 font-medium border border-border bg-background text-foreground hover:bg-accent gap-2"
+                    >
                       Envoyer le message
-                      <Send className="ml-2 h-4 w-4" />
+                      <Send className="h-4 w-4" />
                     </Button>
                   </form>
                 </CardContent>
@@ -637,75 +687,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-background border-t">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8">
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Future Digit</h3>
-              <p className="text-sm text-muted-foreground">
-                Conseil & Régie IT
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Modes d'intervention</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/modes/conseil" className="text-sm text-muted-foreground hover:text-primary">
-                    Conseil
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/modes/regie" className="text-sm text-muted-foreground hover:text-primary">
-                    Régie
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Business Units</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/business-units/banque-finance" className="text-sm text-muted-foreground hover:text-primary">
-                    Banque Finance
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/business-units/ingenierie" className="text-sm text-muted-foreground hover:text-primary">
-                    Ingénierie
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <MapPin className="w-4 h-4 flex-shrink-0" />
-                  58, rue Monceau 75008 Paris
-                </li>
-                <li className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 flex-shrink-0" />
-                  <Link href="mailto:contact@future-digit.com" className="text-sm text-muted-foreground hover:text-primary">
-                    contact@future-digit.com
-                  </Link>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 flex-shrink-0" />
-                  <Link href="tel:+33167074191" className="text-sm text-muted-foreground hover:text-primary">
-                    01 67 07 41 91
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="pt-8 border-t">
-            <div className="text-center text-sm text-muted-foreground">
-              <p>&copy; {new Date().getFullYear()} Future Digit. Tous droits réservés.</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }

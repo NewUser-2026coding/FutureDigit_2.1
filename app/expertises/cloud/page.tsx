@@ -82,7 +82,7 @@ export default function CloudPage() {
       <section className="relative min-h-[80vh] flex items-end pb-20">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/expertise-cloud-hero.jpg"
+            src="/images/new_images/cloud1.webp"
             alt="Expertise Cloud - Infrastructure cloud moderne"
             fill
             className="object-cover"
@@ -218,7 +218,7 @@ export default function CloudPage() {
             >
               <div className="relative rounded-2xl overflow-hidden aspect-[16/10]">
                 <Image
-                  src="/images/expertise-cloud-detail.jpg"
+                  src="/images/new_images/cloud2.webp"
                   alt="Infrastructure cloud moderne"
                   fill
                   className="object-cover"
@@ -285,7 +285,11 @@ export default function CloudPage() {
                 decouvrez comment le cloud peut transformer votre entreprise.
               </p>
               <Link href="/#contact">
-                <Button size="lg" className="rounded-full gap-2 group">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-5 font-medium border border-border bg-background text-foreground hover:bg-accent gap-2 group"
+                >
                   Contactez-nous
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Button>

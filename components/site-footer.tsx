@@ -77,7 +77,7 @@ export function SiteFooter() {
                   href="tel:+33167074191"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  01 67 07 41 91
+                  01 23 45 67 89
                 </Link>
               </div>
             </div>

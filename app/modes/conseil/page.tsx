@@ -92,7 +92,7 @@ export default function ConseilPage() {
       <section className="relative min-h-[70vh] flex items-center pt-20">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/conseil-hero.jpg"
+            src="/images/new_images/mode-consulting.webp"
             alt="Conseil et solutions sur mesure"
             className="w-full h-full object-cover"
           />
@@ -105,7 +105,7 @@ export default function ConseilPage() {
             transition={{ duration: 0.8 }}
             className="max-w-2xl"
           >
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+            <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-sm font-medium mb-6">
               Mode d'Intervention
             </span>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
@@ -121,9 +121,13 @@ export default function ConseilPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/#contact">
-                <Button size="lg" className="bg-foreground text-background hover:bg-foreground/90">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-5 font-medium border border-border bg-background text-foreground hover:bg-accent gap-2 group"
+                >
                   Discutons de votre projet
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Button>
               </Link>
             </div>
@@ -132,7 +136,7 @@ export default function ConseilPage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-[#020817]">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Approche Conseil</h2>
@@ -149,9 +153,9 @@ export default function ConseilPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="p-6 rounded-2xl bg-[#0a101f]/60 border border-gray-800/50 hover:bg-[#0a101f]/80 transition-all duration-300 h-full">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="w-6 h-6 text-primary" />
+                <div className="p-6 rounded-2xl bg-card border border-border hover:border-orange-500/50 transition-all duration-300 h-full">
+                  <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4 group-hover:bg-orange-500/20 transition-colors">
+                    <service.icon className="w-6 h-6 text-orange-500" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
                   <p className="text-sm text-muted-foreground">{service.description}</p>
@@ -163,7 +167,7 @@ export default function ConseilPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 bg-gradient-to-b from-[#020817] to-background">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Processus</h2>
@@ -181,8 +185,8 @@ export default function ConseilPage() {
                 className="relative"
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 relative">
-                    <step.icon className="w-8 h-8 text-primary" />
+                  <div className="w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center mb-4 relative">
+                    <step.icon className="w-8 h-8 text-orange-500" />
                     <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center">
                       {index + 1}
                     </span>
@@ -191,7 +195,7 @@ export default function ConseilPage() {
                   <p className="text-sm text-muted-foreground">{step.description}</p>
                 </div>
                 {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] h-px bg-gradient-to-r from-primary/50 to-transparent" />
+                  <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] h-px bg-gradient-to-r from-orange-500/50 to-transparent" />
                 )}
               </motion.div>
             ))}
@@ -200,7 +204,7 @@ export default function ConseilPage() {
       </section>
 
       {/* Project Types Section */}
-      <section className="py-24 bg-background">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -220,7 +224,7 @@ export default function ConseilPage() {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="border-l-2 border-primary pl-4"
+                    className="border-l-2 border-orange-500 pl-4"
                   >
                     <h3 className="font-semibold mb-1">{project.title}</h3>
                     <p className="text-sm text-muted-foreground">{project.description}</p>
@@ -232,21 +236,21 @@ export default function ConseilPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="relative h-[380px] rounded-2xl overflow-hidden"
             >
               <img
-                src="/images/conseil-team.jpg"
+                src="/images/new_images/team-high-five.webp"
                 alt="Équipe projet"
-                className="rounded-2xl w-full"
+                className="w-full h-full object-cover rounded-2xl"
               />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-background/50 to-transparent" />
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-background/50 to-transparent pointer-events-none" />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 bg-[#020817]">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -255,7 +259,7 @@ export default function ConseilPage() {
               transition={{ duration: 0.8 }}
               className="order-2 lg:order-1"
             >
-              <div className="p-8 rounded-2xl bg-[#0a101f]/60 border border-gray-800/50">
+              <div className="p-8 rounded-2xl bg-card border border-border">
                 <h3 className="text-2xl font-bold mb-6">Notre Engagement</h3>
                 <p className="text-muted-foreground mb-6">
                   Avec notre mode forfait, vous bénéficiez d'un engagement ferme sur les livrables, 
@@ -263,20 +267,20 @@ export default function ConseilPage() {
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                     <span className="text-sm">Périmètre fonctionnel défini et validé</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                     <span className="text-sm">Prix fixe sans dépassement</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                     <span className="text-sm">Planning de livraison garanti</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Garantie de conformite aux specifications</span>
+                    <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">Garantie de conformité aux spécifications</span>
                   </li>
                 </ul>
               </div>
@@ -301,7 +305,7 @@ export default function ConseilPage() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="flex items-center gap-3"
                   >
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0" />
                     <span className="text-sm">{benefit}</span>
                   </motion.div>
                 ))}
@@ -312,7 +316,7 @@ export default function ConseilPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-[#020817] to-background">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -328,9 +332,13 @@ export default function ConseilPage() {
               notre approche conseil peut concrétiser vos ambitions numériques.
             </p>
             <Link href="/#contact">
-              <Button size="lg" className="bg-foreground text-background hover:bg-foreground/90">
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full px-5 font-medium border border-border bg-background text-foreground hover:bg-accent gap-2 group"
+              >
                 Contactez-nous
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Button>
             </Link>
           </motion.div>

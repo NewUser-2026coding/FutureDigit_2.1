@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { ChevronRight } from "lucide-react"
+import { ChevronDown, ChevronRight } from "lucide-react"
+import { cn } from "@/lib/utils"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -9,6 +10,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
 function NavItem({
@@ -45,8 +47,20 @@ export function SiteNavigation() {
     <NavigationMenu>
       <NavigationMenuList className="gap-1">
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent text-foreground/80 hover:bg-accent/50 hover:text-foreground data-[state=open]:bg-accent/50 h-9 px-3 text-sm font-medium">
-            Conseil
+          <NavigationMenuTrigger
+            asChild
+            className="bg-transparent text-foreground/80 hover:bg-accent/50 hover:text-foreground data-[state=open]:bg-accent/50 h-9 px-3 text-sm font-medium"
+          >
+            <div className={cn(navigationMenuTriggerStyle(), "group")}>
+              <Link
+                href="/modes/conseil"
+                className="inline-flex items-center no-underline text-inherit outline-none"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Conseil
+              </Link>
+              <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" aria-hidden="true" />
+            </div>
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="p-2 w-[320px]">
@@ -55,6 +69,28 @@ export function SiteNavigation() {
                 title="Conseil"
                 description="Solutions sur mesure de l'idee au projet"
               />
+            </div>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <NavigationMenuTrigger
+            asChild
+            className="bg-transparent text-foreground/80 hover:bg-accent/50 hover:text-foreground data-[state=open]:bg-accent/50 h-9 px-3 text-sm font-medium"
+          >
+            <div className={cn(navigationMenuTriggerStyle(), "group")}>
+              <Link
+                href="/modes/regie"
+                className="inline-flex items-center no-underline text-inherit outline-none"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Regie
+              </Link>
+              <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" aria-hidden="true" />
+            </div>
+          </NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <div className="p-2 w-[320px]">
               <NavItem
                 href="/modes/regie"
                 title="Regie"

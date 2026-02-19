@@ -34,7 +34,7 @@ const domains = [
     label: "Frontend",
     title: "Single Page Applications",
     description:
-      "Conception et realisation d'applications web modernes et reactives avec les frameworks leaders du marche.",
+      "Réalisation de single page applications (Angular, ReactJS, VueJS). Applications web modernes et réactives.",
     techs: ["Angular", "React", "Vue.js", "TypeScript", "Next.js"],
     accent: "from-cyan-500/20 to-blue-600/20",
     borderAccent: "border-cyan-500/30",
@@ -45,7 +45,7 @@ const domains = [
     label: "Backend",
     title: "API & Microservices",
     description:
-      "Realisation d'architectures backend robustes, scalables et securisees pour des performances optimales.",
+      "Réalisation d'API & microservices (Java, Go, Python, Javascript). Architectures robustes et sécurisées.",
     techs: ["Java", "Go", "Python", "Node.js", "Spring Boot"],
     accent: "from-blue-500/20 to-indigo-600/20",
     borderAccent: "border-blue-500/30",
@@ -56,7 +56,7 @@ const domains = [
     label: "Embedded",
     title: "Logiciel Embarque",
     description:
-      "Developpement de systemes embarques performants et fiables pour l'industrie et l'IoT.",
+      "Développement embarqué (C / C++). Systèmes performants pour l'industrie et l'IoT.",
     techs: ["C", "C++", "RTOS", "ARM", "Linux Embedded"],
     accent: "from-indigo-500/20 to-violet-600/20",
     borderAccent: "border-indigo-500/30",
@@ -66,17 +66,16 @@ const domains = [
 
 const profiles = [
   { role: "Architecte / Tech Lead", icon: Layers },
-  { role: "Developpeur Front", icon: Monitor },
-  { role: "Developpeur Back", icon: Server },
-  { role: "Developpeur Full-Stack", icon: Code2 },
-  { role: "Developpeur Mobile", icon: Smartphone },
+  { role: "Développeur Front", icon: Monitor },
+  { role: "Développeur Back", icon: Server },
+  { role: "Développeur Full-Stack", icon: Code2 },
+  { role: "Développeur Mobile", icon: Smartphone },
   { role: "DevOps", icon: Terminal },
 ]
 
 const stats = [
-  { value: "45+", label: "Consultants experts" },
-  { value: "6+", label: "Technologies maitrisees" },
-  { value: "4M", label: "CA en 2024" },
+  { value: "45", label: "Consultants experts" },
+  { value: "6+", label: "Technologies maîtrisées" },
   { value: "100%", label: "Couverture nationale" },
 ]
 
@@ -123,7 +122,7 @@ export default function SoftwareEngineeringPage() {
             >
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                 <Image
-                  src="/images/expertise-software-hero.jpg"
+                  src="/images/new_images/swe1.webp"
                   alt="Software Engineering - Solutions logicielles innovantes"
                   fill
                   className="object-cover"
@@ -156,7 +155,7 @@ export default function SoftwareEngineeringPage() {
       {/* Stats Bar */}
       <section className="border-y border-border/50 bg-card/30">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4">
+          <div className="grid grid-cols-2 md:grid-cols-3">
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -165,7 +164,7 @@ export default function SoftwareEngineeringPage() {
                 viewport={{ once: true }}
                 custom={i}
                 variants={fadeUp}
-                className={`py-8 px-6 text-center ${i < 3 ? "border-r border-border/50" : ""}`}
+                className={`py-8 px-6 text-center ${i < 2 ? "border-r border-border/50" : ""}`}
               >
                 <p className="text-3xl font-bold text-foreground">{stat.value}</p>
                 <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
@@ -254,7 +253,7 @@ export default function SoftwareEngineeringPage() {
             >
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                 <Image
-                  src="/images/expertise-software-detail.jpg"
+                  src="/images/new_images/swe2.webp"
                   alt="Equipe de developpement logiciel"
                   fill
                   className="object-cover"
@@ -321,7 +320,11 @@ export default function SoftwareEngineeringPage() {
                 en developpement logiciel peut accelerer votre croissance.
               </p>
               <Link href="/#contact">
-                <Button size="lg" className="rounded-full gap-2 group">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-5 font-medium border border-border bg-background text-foreground hover:bg-accent gap-2 group"
+                >
                   Contactez-nous
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Button>

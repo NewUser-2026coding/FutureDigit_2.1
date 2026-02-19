@@ -92,7 +92,7 @@ export default function RegiePage() {
       <section className="relative min-h-[70vh] flex items-center pt-20">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/regie-hero.jpg"
+            src="/images/new_images/mode-regie.webp"
             alt="Extended Teams - Regie"
             className="w-full h-full object-cover"
           />
@@ -105,7 +105,7 @@ export default function RegiePage() {
             transition={{ duration: 0.8 }}
             className="max-w-2xl"
           >
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+            <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-sm font-medium mb-6">
               Extended Teams
             </span>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
@@ -116,14 +116,17 @@ export default function RegiePage() {
             </p>
             <p className="text-lg text-muted-foreground mb-8 text-pretty">
               Bénéficiez de l'expertise et du leadership d'un ou de plusieurs de nos talents, 
-              en immersion au sein de votre organisation, pour renforcer vos équipes et vous 
-              accompagner dans votre développement.
+              en immersion chez vous, pour renforcer vos équipes et vous accompagner dans votre développement.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/#contact">
-                <Button size="lg" className="bg-foreground text-background hover:bg-foreground/90">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-5 font-medium border border-border bg-background text-foreground hover:bg-accent gap-2 group"
+                >
                   Renforcez votre équipe
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Button>
               </Link>
             </div>
@@ -132,10 +135,10 @@ export default function RegiePage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-[#020817]">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Offre Regie</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Offre Régie</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Des experts qualifiés intégrés à vos équipes pour accélérer vos projets
             </p>
@@ -149,9 +152,9 @@ export default function RegiePage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="p-6 rounded-2xl bg-[#0a101f]/60 border border-gray-800/50 hover:bg-[#0a101f]/80 transition-all duration-300 h-full">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                      <service.icon className="w-6 h-6 text-primary" />
+                <div className="p-6 rounded-2xl bg-card border border-border hover:border-orange-500/50 transition-all duration-300 h-full">
+                  <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4 group-hover:bg-orange-500/20 transition-colors">
+                      <service.icon className="w-6 h-6 text-orange-500" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
                   <p className="text-sm text-muted-foreground">{service.description}</p>
@@ -163,7 +166,7 @@ export default function RegiePage() {
       </section>
 
       {/* Profile Types Section */}
-      <section className="py-24 bg-gradient-to-b from-[#020817] to-background">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos Profils</h2>
@@ -178,16 +181,16 @@ export default function RegiePage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-6 rounded-2xl bg-[#0a101f]/40 border border-gray-800/30"
+                className="p-6 rounded-2xl bg-card border border-border hover:border-orange-500/50 transition-all"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <type.icon className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4">
+                  <type.icon className="w-6 h-6 text-orange-500" />
                 </div>
                 <h3 className="text-lg font-semibold mb-4">{type.title}</h3>
-                <ul className="space-y-2">
+                  <ul className="space-y-2">
                   {type.profiles.map((profile) => (
                     <li key={profile} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-orange-500" />
                       {profile}
                     </li>
                   ))}
@@ -199,7 +202,7 @@ export default function RegiePage() {
       </section>
 
       {/* Advantages Section */}
-      <section className="py-24 bg-background">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -219,7 +222,7 @@ export default function RegiePage() {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="border-l-2 border-primary pl-4"
+                    className="border-l-2 border-orange-500 pl-4"
                   >
                     <h3 className="font-semibold mb-1">{advantage.title}</h3>
                     <p className="text-sm text-muted-foreground">{advantage.description}</p>
@@ -231,21 +234,21 @@ export default function RegiePage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="relative h-[380px] rounded-2xl overflow-hidden"
             >
               <img
-                src="/images/regie-team.jpg"
+                src="/images/new_images/team-high-five.webp"
                 alt="Consultant en mission"
-                className="rounded-2xl w-full"
+                className="w-full h-full object-cover rounded-2xl"
               />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-background/50 to-transparent" />
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-background/50 to-transparent pointer-events-none" />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 bg-[#020817]">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -254,7 +257,7 @@ export default function RegiePage() {
               transition={{ duration: 0.8 }}
               className="order-2 lg:order-1"
             >
-              <div className="p-8 rounded-2xl bg-[#0a101f]/60 border border-gray-800/50">
+              <div className="p-8 rounded-2xl bg-card border border-border">
                 <h3 className="text-2xl font-bold mb-6">Un Partenariat Gagnant</h3>
                 <p className="text-muted-foreground mb-6">
                   Notre approche régie va au-delà de la simple mise à disposition de ressources. 
@@ -262,19 +265,19 @@ export default function RegiePage() {
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                     <span className="text-sm">Entretiens techniques approfondis avant chaque mission</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                     <span className="text-sm">Points de suivi réguliers avec le client et le consultant</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                     <span className="text-sm">Formations continues pour maintenir l'excellence technique</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                     <span className="text-sm">Remplacement garanti en cas d'indisponibilité</span>
                   </li>
                 </ul>
@@ -300,7 +303,7 @@ export default function RegiePage() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="flex items-center gap-3"
                   >
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0" />
                     <span className="text-sm">{benefit}</span>
                   </motion.div>
                 ))}
@@ -311,7 +314,7 @@ export default function RegiePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-[#020817] to-background">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -327,9 +330,13 @@ export default function RegiePage() {
               peuvent contribuer au succès de vos projets.
             </p>
             <Link href="/#contact">
-              <Button size="lg" className="bg-foreground text-background hover:bg-foreground/90">
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full px-5 font-medium border border-border bg-background text-foreground hover:bg-accent gap-2 group"
+              >
                 Contactez-nous
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Button>
             </Link>
           </motion.div>

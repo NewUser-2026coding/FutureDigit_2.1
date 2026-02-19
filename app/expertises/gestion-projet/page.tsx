@@ -110,7 +110,7 @@ export default function GestionProjetPage() {
       <section className="relative min-h-[75vh] flex items-end pb-20">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/expertise-gestion-hero.jpg"
+            src="/images/new_images/gestprojet1.webp"
             alt="Gestion de Projet - Pilotage agile"
             fill
             className="object-cover"
@@ -301,7 +301,7 @@ export default function GestionProjetPage() {
             >
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                 <Image
-                  src="/images/expertise-gestion-detail.jpg"
+                  src="/images/new_images/gestprojet2.webp"
                   alt="Equipe projet en reunion agile"
                   fill
                   className="object-cover"
@@ -332,7 +332,11 @@ export default function GestionProjetPage() {
                 decouvrir comment nous pouvons vous accompagner vers le succes.
               </p>
               <Link href="/#contact">
-                <Button size="lg" className="rounded-full gap-2 group">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-5 font-medium border border-border bg-background text-foreground hover:bg-accent gap-2 group"
+                >
                   Contactez-nous
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Button>
