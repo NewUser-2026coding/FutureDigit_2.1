@@ -68,7 +68,7 @@ export function SiteFooter() {
                   href="mailto:contact@future-digit.com"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  contact@future-digit.com
+                  contact@exemple.com
                 </Link>
               </div>
               <div className="flex items-center gap-3">

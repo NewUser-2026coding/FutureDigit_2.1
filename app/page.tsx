@@ -183,7 +183,7 @@ export default function Home() {
       <SiteHeader />
 
       {/* Hero Section - Video-first design */}
-      <section className="relative min-h-[90vh] overflow-hidden">
+      <section className="relative min-h-[78vh] md:min-h-[90vh] overflow-hidden">
         {/* Video background layer */}
         <div className="absolute inset-0 z-0">
           <video
@@ -201,9 +201,9 @@ export default function Home() {
         {/* Content overlay */}
         <motion.div 
           style={{ opacity, scale }} 
-          className="relative z-10 container mx-auto px-4 min-h-[90vh] flex flex-col justify-center pt-32 pb-16"
+          className="relative z-10 container mx-auto px-4 min-h-[78vh] md:min-h-[90vh] flex flex-col justify-start md:justify-center items-center md:items-start text-center md:text-left pt-[22vh] md:pt-32 pb-8 md:pb-16"
         >
-          <div className="max-w-3xl">
+          <div className="max-w-3xl w-full">
             <motion.h1
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -218,10 +218,10 @@ export default function Home() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-white font-light flex flex-wrap items-baseline gap-2"
+              className="text-lg md:text-xl text-white font-light flex flex-col md:flex-row flex-wrap items-center md:items-baseline justify-center md:justify-start gap-0 md:gap-2 text-center md:text-left"
             >
-              <span>Quand vos idées racontent nos talents en</span>
-              <span className="h-7 md:h-8 overflow-hidden inline-block align-baseline ml-0.5">
+              <span className="block md:inline">Quand vos idées racontent nos talents en</span>
+              <span className="h-7 md:h-8 overflow-hidden inline-block align-baseline md:ml-0.5 w-full md:w-auto flex justify-center md:justify-start mt-0.5 md:mt-0">
                 <motion.span
                   key={currentServiceIndex}
                   initial={{ y: 20, opacity: 0 }}
@@ -244,7 +244,7 @@ export default function Home() {
             e.preventDefault()
             document.getElementById("modes")?.scrollIntoView({ behavior: "smooth" })
           }}
-          className="group absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full text-white/40 hover:text-white/90 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+          className="group absolute bottom-2 md:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full text-white/40 hover:text-white/90 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
           aria-label="Défiler vers Comment nous travaillons"
         >
           <ChevronDown className="w-5 h-5 transition-transform duration-300 group-hover:translate-y-0.5" />
@@ -252,7 +252,7 @@ export default function Home() {
       </section>
 
       {/* Logo carousel - Ils nous font confiance */}
-      <section className="relative py-12 bg-[#020817] overflow-hidden">
+      <section className="relative pt-6 pb-12 md:py-12 bg-[#020817] overflow-hidden">
         {/* Top gradient: smooth transition from video to section background */}
         <div
           className="absolute inset-x-0 top-0 h-28 pointer-events-none z-10 bg-gradient-to-b from-black to-[#020817]"
